@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Veil - Secure Peer-to-Peer Chat</title>
+    <meta name="description"
+        content="Speak in silence. Disappear without a trace. Secure end-to-end encrypted messaging with ephemeral identities.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0b0b0b">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Landing Page -->
+        <div id="landing-page" class="page active">
+            <nav class="top-nav">
+                <div class="nav-left">
+                    <div class="logo-small">
+                        <span class="logo-text">ETERNAL VEIL</span>
+                    </div>
+                </div>
+                <div class="nav-center">
+                    <a href="#" data-route="/features" class="nav-link">Features</a>
+                    <a href="#" data-route="/security" class="nav-link">Security</a>
+                    <a href="#" data-route="/app" class="nav-link">App</a>
+                </div>
+                <div class="nav-right">
+                    <button class="btn btn--sm btn--outline" id="install-pwa">Install PWA</button>
+                </div>
+            </nav>
+
+            <main class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-logo">
+                        <h1 class="hero-title">ETERNAL VEIL</h1>
+                        <div class="veil-animation">
+                            <div class="veil-layer layer-1"></div>
+                            <div class="veil-layer layer-2"></div>
+                            <div class="veil-layer layer-3"></div>
+                        </div>
+                    </div>
+                    <p class="hero-tagline">Speak in silence. Disappear without a trace.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn--primary btn--lg" data-route="/app/generate">Generate Identity — No
+                            phone.</button>
+                        <button class="btn btn--outline btn--lg" data-route="/app/import">Import Key</button>
+                    </div>
+                    <div class="security-badges">
+                        <span class="badge">Zero-Knowledge</span>
+                        <span class="badge">E2EE</span>
+                        <span class="badge">Browser Native</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Features Page -->
+        <div id="features-page" class="page">
+            <nav class="top-nav">
+                <div class="nav-left">
+                    <button class="btn btn--outline btn--sm" data-route="/">← Back</button>
+                </div>
+                <div class="nav-center">
+                    <span class="nav-title">Features</span>
+                </div>
+            </nav>
+
+            <main class="features-content">
+                <div class="container">
+                    <h1>Security-First Communication</h1>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h3>End-to-End Encryption</h3>
+                            <p>Military-grade AES-GCM encryption with ECDH P-256 key exchange. Your messages are
+                                encrypted before leaving your device.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Ephemeral Identity</h3>
+                            <p>Generate anonymous identities without phone numbers or personal information. Be anyone,
+                                or no one.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Peer-to-Peer</h3>
+                            <p>Direct WebRTC connections bypass servers entirely. Automatic fallback to encrypted relay
+                                when needed.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Self-Destruct Messages</h3>
+                            <p>Burn messages after reading with cryptographic deletion on all devices simultaneously.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Zero-Knowledge Server</h3>
+                            <p>Our servers never see your keys, messages, or metadata. We can't decrypt what we never
+                                receive.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Open Source</h3>
+                            <p>Fully auditable code with reproducible builds. Trust, but verify.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Security Page -->
+        <div id="security-page" class="page">
+            <nav class="top-nav">
+                <div class="nav-left">
+                    <button class="btn btn--outline btn--sm" data-route="/">← Back</button>
+                </div>
+                <div class="nav-center">
+                    <span class="nav-title">Security</span>
+                </div>
+            </nav>
+
+            <main class="security-content">
+                <div class="container">
+                    <h1>Technical Security Overview</h1>
+                    <div class="security-sections">
+                        <section class="security-section">
+                            <h2>Cryptographic Implementation</h2>
+                            <ul>
+                                <li>AES-GCM 256-bit encryption for message content</li>
+                                <li>ECDH P-256 for key exchange</li>
+                                <li>HKDF for key derivation</li>
+                                <li>Ed25519 for identity signatures</li>
+                                <li>Web Crypto API for all operations</li>
+                            </ul>
+                        </section>
+                        <section class="security-section">
+                            <h2>Trust Model</h2>
+                            <ul>
+                                <li>Trust-on-First-Use (TOFU) with fingerprint verification</li>
+                                <li>Out-of-band verification via QR codes</li>
+                                <li>Emoji-phrase handshake alternative</li>
+                                <li>No central authority or PKI required</li>
+                            </ul>
+                        </section>
+                        <section class="security-section">
+                            <h2>Documentation</h2>
+                            <button class="btn btn--outline">Download Whitepaper (PDF)</button>
+                            <button class="btn btn--outline">View Source Code</button>
+                            <button class="btn btn--outline">Audit Checklist</button>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- App Shell -->
+        <div id="app-shell" class="page">
+            <div class="app-layout">
+                <aside class="left-rail" id="left-rail">
+                    <div class="rail-header">
+                        <h2>Contacts</h2>
+                        <button class="btn btn--sm btn--outline" data-route="/app/contacts">+</button>
+                    </div>
+                    <div class="contact-list" id="contact-list">
+                        <div class="contact-item active" data-chat-id="demo">
+                            <div class="contact-avatar">👤</div>
+                            <div class="contact-info">
+                                <div class="contact-name">Alice Cryptographer</div>
+                                <div class="contact-last">Ready when you are...</div>
+                            </div>
+                            <div class="contact-status secure">🔒</div>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="chat-area" id="chat-area">
+                    <header class="chat-header">
+                        <div class="chat-info">
+                            <h1 id="chat-title">Alice Cryptographer</h1>
+                            <div class="session-status secure">🔒 Secure Session Established</div>
+                        </div>
+                        <div class="chat-actions">
+                            <button class="btn btn--outline btn--sm" id="verify-contact">Verify</button>
+                            <button class="btn btn--outline btn--sm" data-route="/settings">Settings</button>
+                        </div>
+                    </header>
+
+                    <div class="messages-container" id="messages">
+                        <div class="message incoming">
+                            <div class="message-bubble">
+                                <p>Welcome to Eternal Veil! This conversation is end-to-end encrypted and your identity
+                                    is anonymous.</p>
+                            </div>
+                            <div class="message-meta">
+                                <span class="message-time">Just now</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="message-composer">
+                        <button class="composer-btn" id="voice-btn" aria-label="Record voice message">🎤</button>
+                        <div class="composer-input">
+                            <textarea id="message-input" placeholder="Type encrypted message..." rows="1"></textarea>
+                        </div>
+                        <button class="composer-btn" id="attach-btn" aria-label="Attach file">📎</button>
+                        <button class="btn btn--primary" id="send-btn" disabled>Send</button>
+                        <button class="composer-btn burn-btn" id="burn-btn" aria-label="Send burn message"
+                            title="Self-destruct message">🔥</button>
+                    </div>
+                </main>
+
+                <aside class="right-rail" id="right-rail">
+                    <div class="rail-header">
+                        <h3>Chat Details</h3>
+                    </div>
+                    <div class="chat-details">
+                        <div class="detail-section">
+                            <h4>Encryption</h4>
+                            <div class="fingerprint">
+                                <div class="emoji-fingerprint">🔐🌟⚡🦋🌙🔥💎🎭</div>
+                                <button class="btn btn--outline btn--sm">Compare</button>
+                            </div>
+                        </div>
+                        <div class="detail-section">
+                            <h4>Connection</h4>
+                            <div class="connection-status">
+                                <span class="status-indicator p2p">●</span>
+                                <span>Direct P2P</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- Identity Generation -->
+        <div id="generate-page" class="page">
+            <div class="generation-flow">
+                <div class="flow-step active" id="entropy-step">
+                    <div class="step-content">
+                        <h1>Collecting Entropy</h1>
+                        <p>Move your cursor around to generate randomness for your cryptographic keys.</p>
+                        <div class="entropy-visualizer" id="entropy-canvas">
+                            <canvas width="400" height="200"></canvas>
+                            <div class="entropy-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="entropy-progress"></div>
+                                </div>
+                                <span id="entropy-text">0% collected</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-step" id="generation-step">
+                    <div class="step-content">
+                        <h1>Generating Keys</h1>
+                        <div class="generation-progress">
+                            <div class="progress-spinner"></div>
+                            <p>Creating your cryptographic identity...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-step" id="backup-step">
+                    <div class="step-content">
+                        <h1>Backup Your Identity</h1>
+                        <div class="warning-box">
+                            <p><strong>Warning:</strong> If you lose this key, messages cannot be recovered.</p>
+                        </div>
+                        <div class="seed-phrase blurred" id="seed-phrase">
+                            <div class="seed-words" id="seed-words">
+                                <span class="seed-word">abandon</span>
+                                <span class="seed-word">ability</span>
+                                <span class="seed-word">able</span>
+                                <span class="seed-word">about</span>
+                                <span class="seed-word">above</span>
+                                <span class="seed-word">absent</span>
+                                <span class="seed-word">absorb</span>
+                                <span class="seed-word">abstract</span>
+                                <span class="seed-word">absurd</span>
+                                <span class="seed-word">abuse</span>
+                                <span class="seed-word">access</span>
+                                <span class="seed-word">accident</span>
+                            </div>
+                            <button class="btn btn--outline" id="reveal-btn">👁️ Reveal Words</button>
+                        </div>
+                        <div class="backup-actions">
+                            <button class="btn btn--outline" id="copy-seed">Copy to Clipboard</button>
+                            <button class="btn btn--outline" id="download-key">Download Keystore</button>
+                            <button class="btn btn--primary" id="confirm-backup" disabled>I've Backed Up My Key</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-step" id="complete-step">
+                    <div class="step-content">
+                        <h1>Identity Created</h1>
+                        <div class="fingerprint-display">
+                            <div class="emoji-fingerprint large">🔐🌟⚡🦋🌙🔥💎🎭</div>
+                            <div class="fingerprint-hex">A1B2:C3D4:E5F6:7890</div>
+                        </div>
+                        <button class="btn btn--primary btn--lg" data-route="/app">Start Messaging</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Import -->
+        <div id="import-page" class="page">
+            <div class="import-content">
+                <header class="page-header">
+                    <button class="btn btn--outline btn--sm" data-route="/">← Back</button>
+                    <h1>Import Identity</h1>
+                </header>
+
+                <div class="import-form">
+                    <div class="form-group">
+                        <label for="key-file" class="form-label">Select Keystore File</label>
+                        <input type="file" id="key-file" class="form-control" accept=".json" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="key-text" class="form-label">Or Paste Key Text</label>
+                        <textarea id="key-text" class="form-control monospace" rows="8"
+                            placeholder="Paste your encrypted keystore JSON here..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passphrase" class="form-label">Passphrase</label>
+                        <input type="password" id="passphrase" class="form-control"
+                            placeholder="Enter your keystore passphrase" />
+                    </div>
+
+                    <div class="import-actions">
+                        <button class="btn btn--primary" id="import-btn" disabled>Import Identity</button>
+                    </div>
+
+                    <div id="import-error" class="error-message hidden"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contacts Page -->
+        <div id="contacts-page" class="page">
+            <div class="contacts-content">
+                <header class="page-header">
+                    <button class="btn btn--outline btn--sm" data-route="/app">← Back</button>
+                    <h1>Contacts</h1>
+                </header>
+
+                <div class="contacts-actions">
+                    <div class="search-bar">
+                        <input type="text" id="contact-search" class="form-control" placeholder="Search contacts..." />
+                    </div>
+                    <button class="btn btn--outline" id="add-contact">Add Contact</button>
+                    <button class="btn btn--outline" id="scan-qr">Scan QR</button>
+                </div>
+
+                <div class="contacts-list" id="contacts-list">
+                    <div class="contact-card">
+                        <div class="contact-avatar">👤</div>
+                        <div class="contact-details">
+                            <h3>Alice Cryptographer</h3>
+                            <p class="contact-fingerprint">🔐🌟⚡🦋🌙🔥💎🎭</p>
+                            <span class="status verified">Verified</span>
+                        </div>
+                        <div class="contact-actions">
+                            <button class="btn btn--outline btn--sm">Message</button>
+                            <button class="btn btn--outline btn--sm">Verify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Page -->
+        <div id="settings-page" class="page">
+            <div class="settings-content">
+                <header class="page-header">
+                    <button class="btn btn--outline btn--sm" data-route="/app">← Back</button>
+                    <h1>Settings</h1>
+                </header>
+
+                <div class="settings-tabs">
+                    <button class="tab-btn active" data-tab="appearance">Appearance</button>
+                    <button class="tab-btn" data-tab="security">Security & Keys</button>
+                    <button class="tab-btn" data-tab="notifications">Notifications</button>
+                    <button class="tab-btn" data-tab="advanced">Advanced</button>
+                    <button class="tab-btn" data-tab="support">Support</button>
+                </div>
+
+                <div class="settings-panels">
+                    <div class="settings-panel active" id="appearance-panel">
+                        <div class="setting-group">
+                            <h3>Theme</h3>
+                            <label class="toggle-label">
+                                <input type="checkbox" id="high-contrast" />
+                                <span class="toggle-slider"></span>
+                                High Contrast Mode
+                            </label>
+                            <label class="toggle-label">
+                                <input type="checkbox" id="reduced-motion" />
+                                <span class="toggle-slider"></span>
+                                Reduced Motion
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-panel" id="security-panel">
+                        <div class="setting-group">
+                            <h3>Key Management</h3>
+                            <button class="btn btn--outline">Export Keys</button>
+                            <button class="btn btn--outline">Import Keys</button>
+                            <button class="btn btn--destructive">Destroy Keys</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-panel" id="notifications-panel">
+                        <div class="setting-group">
+                            <h3>Sound Effects</h3>
+                            <label class="toggle-label">
+                                <input type="checkbox" id="sound-effects" />
+                                <span class="toggle-slider"></span>
+                                Enable Sound Effects
+                            </label>
+                            <div class="volume-control">
+                                <label for="volume-slider">Volume</label>
+                                <input type="range" id="volume-slider" min="0" max="100" value="50" />
+                                <button class="btn btn--outline btn--sm" id="test-sound">Test</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-panel" id="advanced-panel">
+                        <div class="setting-group">
+                            <h3>Network</h3>
+                            <label for="stun-servers" class="form-label">STUN Servers</label>
+                            <textarea id="stun-servers" class="form-control"
+                                rows="3">stun:stun.l.google.com:19302</textarea>
+                            <label class="toggle-label">
+                                <input type="checkbox" id="developer-mode" />
+                                <span class="toggle-slider"></span>
+                                Developer Mode
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-panel" id="support-panel">
+                        <div class="setting-group">
+                            <h3>Help & Legal</h3>
+                            <button class="btn btn--outline">Help Documentation</button>
+                            <button class="btn btn--outline">Send Feedback</button>
+                            <button class="btn btn--outline">Privacy Policy</button>
+                            <button class="btn btn--outline">Terms of Service</button>
+                            <button class="btn btn--outline">Transparency Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-backdrop" class="modal-backdrop hidden">
+        <div class="modal" id="verification-modal">
+            <div class="modal-header">
+                <h2>Verify Contact</h2>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Compare these emoji sequences to verify the identity:</p>
+                <div class="emoji-comparison">
+                    <div class="emoji-row">
+                        <span class="label">Your view:</span>
+                        <span class="emoji-sequence">🔐🌟⚡🦋🌙🔥💎🎭</span>
+                    </div>
+                    <div class="emoji-row">
+                        <span class="label">Their view:</span>
+                        <span class="emoji-sequence">🔐🌟⚡🦋🌙🔥💎🎭</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn--outline">They Don't Match</button>
+                <button class="btn btn--primary">They Match</button>
+            </div>
+        </div>
+
+        <div class="modal hidden" id="burn-modal">
+            <div class="modal-header">
+                <h2>Self-Destruct Message</h2>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>This message will disappear for everyone after:</p>
+                <select class="form-control" id="burn-timer">
+                    <option value="10">10 seconds</option>
+                    <option value="30">30 seconds</option>
+                    <option value="60">1 minute</option>
+                    <option value="300">5 minutes</option>
+                </select>
+                <div class="warning-box">
+                    <p>⚠️ Once sent, this message cannot be recovered by anyone.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn--outline">Cancel</button>
+                <button class="btn btn--destructive" id="confirm-burn">Send Burn Message</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Audio elements for sound effects -->
+    <audio id="audio-send" preload="auto">
+        <source
+            src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmAZBSuT4PS7cyMCOojK9OueNgYYaLbx5JdQEw1WsOLnbmQ="
+            type="audio/wav">
+    </audio>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
