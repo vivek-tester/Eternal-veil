@@ -1,0 +1,30 @@
+{
+    "name": "eternal-veil",
+    "version": "1.0.0",
+    "description": "Eternal Veil - Secure Peer-to-Peer Chat Application",
+    "main": "index.html",
+    "scripts": {
+        "dev": "python -m http.server 3000",
+        "build": "echo 'Static site - no build needed'",
+        "deploy": "vercel --prod"
+    },
+    "keywords": [
+        "encryption",
+        "p2p",
+        "chat",
+        "privacy",
+        "security",
+        "webrtc",
+        "e2ee"
+    ],
+    "author": "Eternal Veil Team",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-username/eternal-veil.git"
+    },
+    "homepage": "https://eternal-veil.vercel.app",
+    "engines": {
+        "node": ">=14.0.0"
+    }
+}
